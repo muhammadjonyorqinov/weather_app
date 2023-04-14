@@ -21,14 +21,36 @@ class $AssetsImagesGen {
   /// File path: assets/images/day.svg
   SvgGenImage get day => const SvgGenImage('assets/images/day.svg');
 
+  /// File path: assets/images/humidity.svg
+  SvgGenImage get humidity => const SvgGenImage('assets/images/humidity.svg');
+
   /// File path: assets/images/night.svg
   SvgGenImage get night => const SvgGenImage('assets/images/night.svg');
+
+  /// File path: assets/images/pressure.svg
+  SvgGenImage get pressure => const SvgGenImage('assets/images/pressure.svg');
+
+  /// File path: assets/images/temperature.svg
+  SvgGenImage get temperature =>
+      const SvgGenImage('assets/images/temperature.svg');
 
   /// File path: assets/images/weather.svg
   SvgGenImage get weather => const SvgGenImage('assets/images/weather.svg');
 
+  /// File path: assets/images/wind.svg
+  SvgGenImage get wind => const SvgGenImage('assets/images/wind.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [currentLocation, day, night, weather];
+  List<SvgGenImage> get values => [
+        currentLocation,
+        day,
+        humidity,
+        night,
+        pressure,
+        temperature,
+        weather,
+        wind
+      ];
 }
 
 class $AssetsTranslationsGen {
