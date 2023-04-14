@@ -20,5 +20,9 @@ class AppRouter extends $AppRouter {
       page: HomeUI.page,
       path: Routes.HOME,
     ),
+    AutoRoute(
+      page: DetailedWeatherUI.page,
+      path: Routes.DETAILED_WEATHER,
+    ),
   ];
 }
