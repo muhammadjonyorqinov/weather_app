@@ -18,4 +18,14 @@ class LocalizationKeys {
   /// en:  **'No cached data'**
   static const noCachedData = 'no_cached_data';
 
+  /// Translations:
+  ///
+  /// en:  **'Details'**
+  static const details = 'details';
+
+  /// Translations:
+  ///
+  /// en:  **'m/sec'**
+  static const mSec = 'm_sec';
+
 }

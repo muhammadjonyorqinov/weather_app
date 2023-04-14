@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '/app/app_router.dart';
+import '/app/app_router.gr.dart';
+import '/app/injections.dart';
 import 'w_background.dart';
 import '/utils/core/styles.dart';
 import '/utils/core/dimensions.dart';
@@ -17,10 +20,12 @@ class WDaily extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WBackground(
+      onPressed: () => ls<AppRouter>().push(DetailedWeatherUI(dWeather: weather)),
       child: Row(
         children: [
           Text(
-            DateFormat("dd MMM yyyy",context.locale.languageCode).format(weather!.dateTime!),
+            DateFormat("dd MMM yyyy", context.locale.languageCode)
+                .format(weather!.dateTime!),
             style: kBlackStyle14w600,
           ),
           const Spacer(),

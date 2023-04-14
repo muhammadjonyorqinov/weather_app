@@ -10,6 +10,9 @@ class HourlyWeather with _$HourlyWeather {
   const factory HourlyWeather({
     @DateTimeConverter()@JsonKey(name: 'dt') DateTime? dateTime,
      @IntegerConverter()int? temp,
+    int? humidity,
+    int? pressure,
+    @JsonKey(name: 'wind_speed')@IntegerConverter()int? windSpeed,
   }) = _HourlyWeather;
 
   factory HourlyWeather.fromJson(Map<String, dynamic> json) =>
