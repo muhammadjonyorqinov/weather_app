@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../utils/core/dio_provider.dart';
 import '/features/home/data/data_source/weather_local_data_source.dart';
 import '/utils/network/network_info.dart';
 import '/features/home/domain/usecases/get_geocode.dart';
@@ -21,6 +23,7 @@ Future<void> setup() async {
   );
   ls.registerSingleton<AppRouter>(AppRouter());
   ls.registerSingleton<InternetConnectionChecker>(InternetConnectionChecker());
+  ls.registerSingleton<Dio>(HttpClientProvider.getInstance.client);
   ls.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(ls()));
 
   /// WeatherBloc
@@ -43,7 +46,7 @@ Future<void> setup() async {
 
   // data sources
   ls.registerLazySingleton<WeatherRemoteDataSource>(
-      () => WeatherRemoteDataSourceImpl());
+      () => WeatherRemoteDataSourceImpl(dio: ls()));
   ls.registerLazySingleton<WeatherLocalDataSource>(
       () => WeatherLocalDataSourceImpl(ls()));
 }

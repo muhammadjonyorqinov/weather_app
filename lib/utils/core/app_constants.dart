@@ -20,5 +20,5 @@ class AppConstants {
       name: 'Kyiv',
       lat: AppConstants.DEFAULT_LAT,
       lon: AppConstants.DEFAULT_LON,
-      country: 'Ukraine');
+      country: 'UA');
 }

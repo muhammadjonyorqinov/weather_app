@@ -9,7 +9,6 @@ class HttpClientProvider implements IHttpClientProvider {
   ));
   static HttpClientProvider? _instance;
 
-  //HttpClientProvider._();
 
   static HttpClientProvider get getInstance =>
       _instance = _instance ?? HttpClientProvider();
@@ -45,10 +44,6 @@ class HttpClientProvider implements IHttpClientProvider {
         ),
       ],
     );
-
-    // if (preferencesService.getString('TOKEN') != null) {
-    //   allowHeaders();
-    // }
   }
 
   @override

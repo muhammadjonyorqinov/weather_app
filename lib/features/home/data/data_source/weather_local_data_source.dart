@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:weather_app/features/home/data/models/geocode.dart';
-import 'package:weather_app/utils/core/app_constants.dart';
-import 'package:weather_app/utils/core/failures.dart';
-
+import '/features/home/data/models/geocode.dart';
+import '/utils/core/app_constants.dart';
+import '/utils/core/failures.dart';
 import '../models/weather_response.dart';
 
 abstract class WeatherLocalDataSource {
@@ -35,7 +33,7 @@ class WeatherLocalDataSourceImpl extends WeatherLocalDataSource {
     if (jsonString != null) {
       return Future.value(WeatherResponse.fromJson(json.decode(jsonString)));
     } else {
-      throw const CacheFailure('No cached data', 100);
+      throw const CacheFailure(message: 'no_cached_data', statusCode: 100);
     }
   }
 

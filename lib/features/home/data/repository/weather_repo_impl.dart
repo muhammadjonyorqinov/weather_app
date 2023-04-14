@@ -23,7 +23,6 @@ class WeatherRepoImpl extends WeatherRepo {
   @override
   Future<Either<Failure, WeatherResponse?>> getWeather(
       WeatherParams params) async {
-    print(await networkInfo.isConnected);
     if (await networkInfo.isConnected) {
       try {
         final data = await remoteSource.getWeather(params);
@@ -39,7 +38,7 @@ class WeatherRepoImpl extends WeatherRepo {
         return Right(data);
       } catch (e) {
         print(e);
-        return const Left(CacheFailure('no_cached_data', 100));
+        return const Left(CacheFailure(message: 'no_cached_data', statusCode: 100));
       }
     }
   }
@@ -62,7 +61,7 @@ class WeatherRepoImpl extends WeatherRepo {
         return Right(data);
       } catch (e) {
         print(e);
-        return const Left(CacheFailure('no_cached_data', 100));
+        return const Left(CacheFailure(message: 'no_cached_data',statusCode: 100));
       }
     }
   }

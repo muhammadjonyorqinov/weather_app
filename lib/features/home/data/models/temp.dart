@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../converters/integer_converter.dart';
+import '/utils/converters/integer_converter.dart';
 
 part 'temp.g.dart';
 

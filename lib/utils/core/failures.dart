@@ -23,8 +23,8 @@ class ConnectionFailure extends Failure {
 }
 
 class CacheFailure extends Failure {
-  const CacheFailure(
-    String message,
+  const CacheFailure({
+    required String message,
     int? statusCode,
-  ) : super(message, statusCode);
+  }) : super(message, statusCode);
 }

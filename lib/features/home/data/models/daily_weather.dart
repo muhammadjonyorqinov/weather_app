@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../converters/datetime_converter.dart';
+import '/utils/converters/datetime_converter.dart';
 import 'temp.dart';
 
 part 'daily_weather.g.dart';
