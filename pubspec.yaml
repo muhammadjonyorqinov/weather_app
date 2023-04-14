@@ -42,6 +42,7 @@ dependencies:
   #State management
   bloc: ^8.1.1
   flutter_bloc: ^8.1.2
+  bloc_test: ^9.1.1
   get_it: ^7.2.0
 
   #Translations
@@ -81,7 +82,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   locale_gen: ^11.0.0
-
+  mockito: ^5.4.0
   auto_route_generator: ^6.0.3
   build_runner: ^2.3.3
   flutter_lints: ^2.0.1
