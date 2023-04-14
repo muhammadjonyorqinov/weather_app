@@ -25,6 +25,11 @@ mixin _$HourlyWeather {
   DateTime? get dateTime => throw _privateConstructorUsedError;
   @IntegerConverter()
   int? get temp => throw _privateConstructorUsedError;
+  int? get humidity => throw _privateConstructorUsedError;
+  int? get pressure => throw _privateConstructorUsedError;
+  @JsonKey(name: 'wind_speed')
+  @IntegerConverter()
+  int? get windSpeed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +45,10 @@ abstract class $HourlyWeatherCopyWith<$Res> {
   @useResult
   $Res call(
       {@DateTimeConverter() @JsonKey(name: 'dt') DateTime? dateTime,
-      @IntegerConverter() int? temp});
+      @IntegerConverter() int? temp,
+      int? humidity,
+      int? pressure,
+      @JsonKey(name: 'wind_speed') @IntegerConverter() int? windSpeed});
 }
 
 /// @nodoc
@@ -58,6 +66,9 @@ class _$HourlyWeatherCopyWithImpl<$Res, $Val extends HourlyWeather>
   $Res call({
     Object? dateTime = freezed,
     Object? temp = freezed,
+    Object? humidity = freezed,
+    Object? pressure = freezed,
+    Object? windSpeed = freezed,
   }) {
     return _then(_value.copyWith(
       dateTime: freezed == dateTime
@@ -67,6 +78,18 @@ class _$HourlyWeatherCopyWithImpl<$Res, $Val extends HourlyWeather>
       temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
+              as int?,
+      humidity: freezed == humidity
+          ? _value.humidity
+          : humidity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pressure: freezed == pressure
+          ? _value.pressure
+          : pressure // ignore: cast_nullable_to_non_nullable
+              as int?,
+      windSpeed: freezed == windSpeed
+          ? _value.windSpeed
+          : windSpeed // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -82,7 +105,10 @@ abstract class _$$_HourlyWeatherCopyWith<$Res>
   @useResult
   $Res call(
       {@DateTimeConverter() @JsonKey(name: 'dt') DateTime? dateTime,
-      @IntegerConverter() int? temp});
+      @IntegerConverter() int? temp,
+      int? humidity,
+      int? pressure,
+      @JsonKey(name: 'wind_speed') @IntegerConverter() int? windSpeed});
 }
 
 /// @nodoc
@@ -98,6 +124,9 @@ class __$$_HourlyWeatherCopyWithImpl<$Res>
   $Res call({
     Object? dateTime = freezed,
     Object? temp = freezed,
+    Object? humidity = freezed,
+    Object? pressure = freezed,
+    Object? windSpeed = freezed,
   }) {
     return _then(_$_HourlyWeather(
       dateTime: freezed == dateTime
@@ -108,6 +137,18 @@ class __$$_HourlyWeatherCopyWithImpl<$Res>
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as int?,
+      humidity: freezed == humidity
+          ? _value.humidity
+          : humidity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pressure: freezed == pressure
+          ? _value.pressure
+          : pressure // ignore: cast_nullable_to_non_nullable
+              as int?,
+      windSpeed: freezed == windSpeed
+          ? _value.windSpeed
+          : windSpeed // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -117,7 +158,10 @@ class __$$_HourlyWeatherCopyWithImpl<$Res>
 class _$_HourlyWeather implements _HourlyWeather {
   const _$_HourlyWeather(
       {@DateTimeConverter() @JsonKey(name: 'dt') this.dateTime,
-      @IntegerConverter() this.temp});
+      @IntegerConverter() this.temp,
+      this.humidity,
+      this.pressure,
+      @JsonKey(name: 'wind_speed') @IntegerConverter() this.windSpeed});
 
   factory _$_HourlyWeather.fromJson(Map<String, dynamic> json) =>
       _$$_HourlyWeatherFromJson(json);
@@ -129,10 +173,18 @@ class _$_HourlyWeather implements _HourlyWeather {
   @override
   @IntegerConverter()
   final int? temp;
+  @override
+  final int? humidity;
+  @override
+  final int? pressure;
+  @override
+  @JsonKey(name: 'wind_speed')
+  @IntegerConverter()
+  final int? windSpeed;
 
   @override
   String toString() {
-    return 'HourlyWeather(dateTime: $dateTime, temp: $temp)';
+    return 'HourlyWeather(dateTime: $dateTime, temp: $temp, humidity: $humidity, pressure: $pressure, windSpeed: $windSpeed)';
   }
 
   @override
@@ -142,12 +194,19 @@ class _$_HourlyWeather implements _HourlyWeather {
             other is _$_HourlyWeather &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime) &&
-            (identical(other.temp, temp) || other.temp == temp));
+            (identical(other.temp, temp) || other.temp == temp) &&
+            (identical(other.humidity, humidity) ||
+                other.humidity == humidity) &&
+            (identical(other.pressure, pressure) ||
+                other.pressure == pressure) &&
+            (identical(other.windSpeed, windSpeed) ||
+                other.windSpeed == windSpeed));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, dateTime, temp);
+  int get hashCode =>
+      Object.hash(runtimeType, dateTime, temp, humidity, pressure, windSpeed);
 
   @JsonKey(ignore: true)
   @override
@@ -165,8 +224,16 @@ class _$_HourlyWeather implements _HourlyWeather {
 
 abstract class _HourlyWeather implements HourlyWeather {
   const factory _HourlyWeather(
-      {@DateTimeConverter() @JsonKey(name: 'dt') final DateTime? dateTime,
-      @IntegerConverter() final int? temp}) = _$_HourlyWeather;
+      {@DateTimeConverter()
+      @JsonKey(name: 'dt')
+          final DateTime? dateTime,
+      @IntegerConverter()
+          final int? temp,
+      final int? humidity,
+      final int? pressure,
+      @JsonKey(name: 'wind_speed')
+      @IntegerConverter()
+          final int? windSpeed}) = _$_HourlyWeather;
 
   factory _HourlyWeather.fromJson(Map<String, dynamic> json) =
       _$_HourlyWeather.fromJson;
@@ -178,6 +245,14 @@ abstract class _HourlyWeather implements HourlyWeather {
   @override
   @IntegerConverter()
   int? get temp;
+  @override
+  int? get humidity;
+  @override
+  int? get pressure;
+  @override
+  @JsonKey(name: 'wind_speed')
+  @IntegerConverter()
+  int? get windSpeed;
   @override
   @JsonKey(ignore: true)
   _$$_HourlyWeatherCopyWith<_$_HourlyWeather> get copyWith =>
