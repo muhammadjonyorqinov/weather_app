@@ -72,6 +72,16 @@ class Localization {
   /// en:  **'No cached data'**
   String get noCachedData => _t(LocalizationKeys.noCachedData);
 
+  /// Translations:
+  ///
+  /// en:  **'Details'**
+  String get details => _t(LocalizationKeys.details);
+
+  /// Translations:
+  ///
+  /// en:  **'m/sec'**
+  String get mSec => _t(LocalizationKeys.mSec);
+
   String getTranslation(String key, {List<dynamic>? args}) => _t(key, args: args ?? <dynamic>[]);
 
 }

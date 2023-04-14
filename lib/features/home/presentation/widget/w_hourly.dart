@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '/app/app_router.dart';
+import '/app/app_router.gr.dart';
+import '/app/injections.dart';
 import '/utils/core/styles.dart';
 import '/features/home/data/models/hourly_weather.dart';
 import '/features/home/presentation/widget/w_background.dart';
@@ -12,6 +15,7 @@ class WHourly extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WBackground(
+      onPressed: () => ls<AppRouter>().push(DetailedWeatherUI(hWeather: weather)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -30,7 +34,7 @@ class WHourly extends StatelessWidget {
             ],
           ),
           Text(
-            '${weather?.temp?.round().toString() ?? ' '} °C',
+            '${weather?.temp?.toString() ?? ' '} °C',
             style: kBlackStyle14w600,
           )
         ],
