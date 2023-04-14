@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/utils/core/dimensions.dart';
 import '/utils/core/enums.dart';
 import '../bloc/weather_bloc.dart';
 
@@ -11,6 +12,7 @@ class WTypeSelector extends StatelessWidget {
     return BlocBuilder<WeatherBloc, WeatherState>(
       builder: (context, state) {
         return PopupMenuButton(
+          shape: RoundedRectangleBorder(borderRadius: Dimensions.radiusAll12),
           initialValue: state.type,
           itemBuilder: (context) => WeatherType.values
               .map(
